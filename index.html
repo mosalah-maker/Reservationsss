@@ -233,6 +233,17 @@
             background: linear-gradient(135deg, #FF4FD8, #6D5BFF);
             color: #fff;
         }
+        .btn-copy {
+            background: rgba(109, 91, 255, 0.1);
+            color: #6D5BFF;
+            border: 1px solid rgba(109, 91, 255, 0.2);
+            padding: 4px 12px;
+            font-size: 11px;
+            border-radius: 30px;
+        }
+        .btn-copy:hover {
+            background: rgba(109, 91, 255, 0.2);
+        }
 
         /* ===== STATS CARDS ===== */
         .stats-grid {
@@ -559,6 +570,7 @@
         .action-btn.status-wa:hover { background: rgba(109, 91, 255, 0.15); color: #6D5BFF; }
         .action-btn.call:hover { background: rgba(0, 229, 255, 0.15); color: #00E5FF; }
         .action-btn.assign:hover { background: rgba(0, 208, 132, 0.15); color: #00D084; }
+        .action-btn.link:hover { background: rgba(0, 229, 255, 0.15); color: #00E5FF; }
 
         /* ===== MOBILE CARDS ===== */
         .mobile-cards { display: none; }
@@ -704,6 +716,11 @@
         .form-group input[type="file"]:hover {
             border-color: #6D5BFF;
         }
+        .form-group .help-text {
+            font-size: 12px;
+            color: rgba(199, 210, 254, 0.4);
+            margin-top: 4px;
+        }
 
         /* ===== DETAIL ITEMS ===== */
         .detail-grid { display: grid; gap: 12px; }
@@ -764,40 +781,57 @@
             to { transform: translateX(0); opacity: 1; }
         }
 
-        /* ===== EXAM LINK SECTION ===== */
-        .exam-link-section {
+        /* ===== EXAM LINKS SECTION ===== */
+        .exam-links-section {
             background: rgba(17, 24, 39, 0.6);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(109, 91, 255, 0.1);
             border-radius: 20px;
             padding: 20px;
             margin-bottom: 25px;
+        }
+        .exam-links-section h3 {
+            color: #6D5BFF;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .exam-link-row {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             align-items: center;
             flex-wrap: wrap;
+            background: rgba(8, 11, 20, 0.4);
+            padding: 10px 14px;
+            border-radius: 12px;
+            margin-bottom: 8px;
         }
-        .exam-link-section label {
-            color: #6D5BFF;
+        .exam-link-row .section-name {
             font-weight: 700;
+            color: #00E5FF;
+            min-width: 120px;
             font-size: 14px;
         }
-        .exam-link-section input {
+        .exam-link-row input {
             flex: 1;
-            min-width: 300px;
-            padding: 12px 18px;
+            min-width: 200px;
+            padding: 8px 14px;
             background: rgba(8, 11, 20, 0.8);
             border: 1px solid rgba(109, 91, 255, 0.15);
-            border-radius: 16px;
+            border-radius: 12px;
             color: #FFFFFF;
             font-family: 'Cairo', sans-serif;
-            font-size: 14px;
+            font-size: 13px;
             transition: all 0.3s ease;
         }
-        .exam-link-section input:focus { 
+        .exam-link-row input:focus {
             border-color: #6D5BFF;
-            box-shadow: 0 0 30px rgba(109, 91, 255, 0.1);
             outline: none;
+        }
+        .exam-link-row .link-actions {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
         }
 
         /* ===== DISCOUNT SECTION ===== */
@@ -918,8 +952,8 @@
             .filter-bar { flex-direction: column; }
             .search-box, .filter-select { width: 100%; }
             .mobile-card-actions { grid-template-columns: repeat(2, 1fr); }
-            .exam-link-section { flex-direction: column; }
-            .exam-link-section input { min-width: auto; width: 100%; }
+            .exam-link-row { flex-direction: column; align-items: stretch; }
+            .exam-link-row input { min-width: auto; width: 100%; }
             .discount-section { flex-direction: column; }
             .discount-section input { max-width: 100%; width: 100%; }
             .top-bar { flex-direction: column; align-items: flex-start; }
@@ -973,6 +1007,56 @@
             font-size: 13px;
             font-weight: 600;
         }
+
+        /* ===== SECTION MANAGEMENT ===== */
+        .sections-management {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(109, 91, 255, 0.1);
+        }
+        .sections-management h4 {
+            color: #6D5BFF;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .section-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(8, 11, 20, 0.4);
+            padding: 10px 14px;
+            border-radius: 12px;
+            margin-bottom: 6px;
+        }
+        .section-item .section-name {
+            color: #C7D2FE;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .section-item .section-actions {
+            display: flex;
+            gap: 6px;
+        }
+        .add-section-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .add-section-row input {
+            flex: 1;
+            padding: 10px 16px;
+            background: rgba(8, 11, 20, 0.8);
+            border: 1px solid rgba(109, 91, 255, 0.15);
+            border-radius: 12px;
+            color: #FFFFFF;
+            font-family: 'Cairo', sans-serif;
+            font-size: 14px;
+        }
+        .add-section-row input:focus {
+            border-color: #6D5BFF;
+            outline: none;
+        }
     </style>
 </head>
 <body>
@@ -992,6 +1076,7 @@
         <li><a href="#" class="active" onclick="switchTab('headphones', this); return false"><span class="icon"><i class="fas fa-headphones"></i></span> <span>حجوزات السماعات</span></a></li>
         <li><a href="#" onclick="switchTab('exams', this); return false"><span class="icon"><i class="fas fa-graduation-cap"></i></span> <span>حجوزات الامتحانات</span> <span class="tab-badge">جديد</span></a></li>
         <li><a href="#" onclick="switchTab('products', this); return false"><span class="icon"><i class="fas fa-box"></i></span> <span>المنتجات</span> <span class="tab-badge">جديد</span></a></li>
+        <li><a href="#" onclick="switchTab('sections', this); return false"><span class="icon"><i class="fas fa-layer-group"></i></span> <span>إدارة الشعب</span> <span class="tab-badge">جديد</span></a></li>
         <li><a href="#" onclick="exportCSV(); return false"><span class="icon"><i class="fas fa-file-export"></i></span> <span>تصدير البيانات</span></a></li>
         <li><a href="#" onclick="window.print(); return false"><span class="icon"><i class="fas fa-print"></i></span> <span>طباعة</span></a></li>
     </ul>
@@ -1056,10 +1141,12 @@
             <h1><i class="fas fa-graduation-cap" style="color:#6D5BFF;"></i> إدارة حجوزات الامتحانات</h1>
         </div>
 
-        <div class="exam-link-section">
-            <label><i class="fas fa-link" style="color:#6D5BFF;"></i> رابط الامتحان:</label>
-            <input type="url" id="examLinkInput" placeholder="https://example.com/exam" value="https://example.com/exam">
-            <button class="btn btn-primary btn-sm" onclick="saveExamLink()"><i class="fas fa-save"></i> حفظ الرابط</button>
+        <!-- روابط الامتحانات لكل شعبة -->
+        <div class="exam-links-section">
+            <h3><i class="fas fa-link" style="color:#6D5BFF;"></i> روابط الامتحانات حسب الشعبة</h3>
+            <div id="examLinksContainer">
+                <div class="loading-state"><div class="spinner"></div><p>جاري تحميل روابط الشعب...</p></div>
+            </div>
         </div>
 
         <div class="stats-grid" id="examStats">
@@ -1071,7 +1158,7 @@
         <div class="filter-bar">
             <div class="search-box">
                 <span class="search-icon"><i class="fas fa-search"></i></span>
-                <input type="text" id="eSearchInput" placeholder="ابحث بالاسم، رقم الواتس، التليجرام..." oninput="filterExams()">
+                <input type="text" id="eSearchInput" placeholder="ابحث بالاسم، رقم الواتس..." oninput="filterExams()">
             </div>
             <select class="filter-select" id="eStatusFilter" onchange="filterExams()">
                 <option value="all">📋 كل الحالات</option>
@@ -1079,13 +1166,16 @@
                 <option value="confirmed">✅ تم التأكيد</option>
                 <option value="cancelled">❌ ملغي</option>
             </select>
+            <select class="filter-select" id="eSectionFilter" onchange="filterExams()">
+                <option value="all">📚 كل الشعب</option>
+            </select>
         </div>
 
         <div class="table-container">
             <div class="table-scroll">
                 <table>
-                    <thead><tr><th>#</th><th>الاسم</th><th>رقم الواتساب</th><th>تليجرام</th><th>الشعبة</th><th>تاريخ الحجز</th><th>الحالة</th><th>العمليات</th></tr></thead>
-                    <tbody id="eTableBody"><tr><td colspan="8"><div class="loading-state"><div class="spinner"></div><p>جاري التحميل...</p></div></td></tr></tbody>
+                    <thead><tr><th>#</th><th>الاسم</th><th>رقم الواتساب</th><th>الشعبة</th><th>تاريخ الحجز</th><th>الحالة</th><th>العمليات</th></tr></thead>
+                    <tbody id="eTableBody"><tr><td colspan="7"><div class="loading-state"><div class="spinner"></div><p>جاري التحميل...</p></div></td></tr></tbody>
                 </table>
             </div>
             <div class="mobile-cards" id="eMobileCards"></div>
@@ -1129,6 +1219,33 @@
             </div>
         </div>
     </div>
+
+    <!-- ========== TAB 4: SECTIONS ========== -->
+    <div class="tab-content" id="tab-sections">
+        <div class="top-bar">
+            <h1><i class="fas fa-layer-group" style="color:#6D5BFF;"></i> إدارة الشعب</h1>
+        </div>
+
+        <div class="table-container">
+            <div style="padding: 20px;">
+                <h3 style="color: #6D5BFF; margin-bottom: 15px;">📚 الشعب المتاحة</h3>
+                <div id="sectionsList">
+                    <div class="loading-state"><div class="spinner"></div><p>جاري التحميل...</p></div>
+                </div>
+
+                <div class="sections-management">
+                    <h4><i class="fas fa-plus-circle" style="color:#6D5BFF;"></i> إضافة شعبة جديدة</h4>
+                    <div class="add-section-row">
+                        <input type="text" id="newSectionName" placeholder="اسم الشعبة (مثل: علمي رياضة)">
+                        <button class="btn btn-primary btn-sm" onclick="addNewSection()"><i class="fas fa-plus"></i> إضافة</button>
+                    </div>
+                    <div class="help-text" style="font-size:12px;color:rgba(199,210,254,0.4);margin-top:6px;">
+                        💡 سيتم إنشاء رابط مخصص لهذه الشعبة تلقائياً
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- ========== HEADPHONE MODALS ========== -->
@@ -1137,7 +1254,7 @@
 <div class="modal-overlay" id="detailHeadphoneModal"><div class="modal"><div class="modal-header"><h3><i class="fas fa-info-circle" style="color:#6D5BFF;"></i> تفاصيل حجز السماعة</h3><button class="modal-close" onclick="closeModal('detailHeadphoneModal')"><i class="fas fa-times"></i></button></div><div class="modal-body" id="detailHContent"></div><div class="modal-footer" id="detailHFooter"></div></div></div>
 
 <!-- ========== EXAM MODALS ========== -->
-<div class="modal-overlay" id="editExamModal"><div class="modal"><div class="modal-header"><h3><i class="fas fa-edit" style="color:#6D5BFF;"></i> تعديل حجز الامتحان</h3><button class="modal-close" onclick="closeModal('editExamModal')"><i class="fas fa-times"></i></button></div><div class="modal-body"><input type="hidden" id="editExamId"><div class="form-group"><label>الاسم</label><input type="text" id="editExamName"></div><div class="form-group"><label>رقم الواتساب</label><input type="text" id="editExamPhone"></div><div class="form-group"><label>اسم المستخدم تليجرام</label><input type="text" id="editExamTelegram"></div><div class="form-group"><label>الشعبة</label><input type="text" id="editExamSection"></div></div><div class="modal-footer"><button class="btn btn-primary" onclick="saveExamEdit()"><i class="fas fa-save"></i> حفظ</button><button class="btn btn-outline" onclick="closeModal('editExamModal')">إلغاء</button></div></div></div>
+<div class="modal-overlay" id="editExamModal"><div class="modal"><div class="modal-header"><h3><i class="fas fa-edit" style="color:#6D5BFF;"></i> تعديل حجز الامتحان</h3><button class="modal-close" onclick="closeModal('editExamModal')"><i class="fas fa-times"></i></button></div><div class="modal-body"><input type="hidden" id="editExamId"><div class="form-group"><label>الاسم</label><input type="text" id="editExamName"></div><div class="form-group"><label>رقم الواتساب</label><input type="text" id="editExamPhone"></div><div class="form-group"><label>الشعبة</label><input type="text" id="editExamSection"></div></div><div class="modal-footer"><button class="btn btn-primary" onclick="saveExamEdit()"><i class="fas fa-save"></i> حفظ</button><button class="btn btn-outline" onclick="closeModal('editExamModal')">إلغاء</button></div></div></div>
 
 <div class="modal-overlay" id="detailExamModal"><div class="modal"><div class="modal-header"><h3><i class="fas fa-info-circle" style="color:#6D5BFF;"></i> تفاصيل حجز الامتحان</h3><button class="modal-close" onclick="closeModal('detailExamModal')"><i class="fas fa-times"></i></button></div><div class="modal-body" id="detailExamContent"></div><div class="modal-footer" id="detailExamFooter"></div></div></div>
 
@@ -1165,12 +1282,13 @@ const db = firebase.firestore();
 let allHeadphones = [];
 let allExams = [];
 let allProducts = [];
+let allSections = [];
 let deleteId = null;
 let deleteType = null;
 let currentUserEmail = 'admin@example.com';
 
-// 🔑 IMPORTANT: ضع مفتاح ImgBB API الخاص بك هنا
-const IMGBB_API_KEY = 'd96cbbe822e1ace2ef3247edf29d6de2'; // ⚠️ استبدل هذا بالمفتاح الحقيقي
+// 🔑 مفتاح ImgBB API
+const IMGBB_API_KEY = 'd96cbbe822e1ace2ef3247edf29d6de2';
 
 const CONFIRM_PAGE_URL = "https://mosalah-maker.github.io/Confirm-your-reservation/";
 const STATUSES = [
@@ -1206,9 +1324,10 @@ function switchTab(tab, el) {
     document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
     document.getElementById('tab-' + tab).classList.add('active');
     if (el) el.classList.add('active');
-    if (tab === 'exams') loadExams();
+    if (tab === 'exams') { loadExams(); loadExamLinks(); }
     if (tab === 'headphones') loadHeadphones();
     if (tab === 'products') loadProducts();
+    if (tab === 'sections') loadSections();
 }
 
 // ========== FORMATTING ==========
@@ -1280,20 +1399,6 @@ async function uploadToImgBB(file) {
     }
 }
 
-// ========== EXAM LINK ==========
-function saveExamLink() {
-    const link = document.getElementById('examLinkInput').value.trim();
-    if (link) {
-        localStorage.setItem('examLink', link);
-        showToast('✅ تم حفظ رابط الامتحان');
-    } else {
-        showToast('⚠️ الرجاء إدخال رابط صحيح');
-    }
-}
-function getExamLink() {
-    return localStorage.getItem('examLink') || 'https://example.com/exam';
-}
-
 // ========== DISCOUNT FUNCTIONS ==========
 function getDiscount() {
     return localStorage.getItem('productDiscount') || '0';
@@ -1354,7 +1459,6 @@ function openProductModal(productId) {
             document.getElementById('editPPrice').value = product.data.price || '';
             document.getElementById('productModalTitle').textContent = 'تعديل المنتج';
             
-            // عرض الصورة الحالية إن وجدت
             if (product.data.image) {
                 document.getElementById('imagePreviewContainer').innerHTML = `
                     <img src="${product.data.image}" style="max-width:200px;max-height:200px;border-radius:12px;border:2px solid rgba(109,91,255,0.3);">
@@ -1381,7 +1485,6 @@ async function saveProduct() {
     try {
         let imageUrl = '';
         if (imageFile) {
-            // 🚀 رفع الصورة إلى ImgBB
             imageUrl = await uploadToImgBB(imageFile);
             showToast('✅ تم رفع الصورة إلى ImgBB');
         }
@@ -1746,6 +1849,172 @@ function updateHeadphoneStats(reservations) {
     document.getElementById('hTotalCount').textContent = `الإجمالي: ${reservations.length}`;
 }
 
+// ========== SECTIONS FUNCTIONS ==========
+function loadSections() {
+    db.collection('exam_sections').orderBy('name', 'asc').onSnapshot(snapshot => {
+        allSections = snapshot.docs.map(doc => ({ id: doc.id, name: doc.data().name }));
+        renderSections();
+        updateSectionFilter();
+        loadExamLinks();
+    }, err => console.error(err));
+}
+
+function renderSections() {
+    const container = document.getElementById('sectionsList');
+    if (allSections.length === 0) {
+        container.innerHTML = `<div style="text-align:center;padding:30px;color:rgba(199,210,254,0.5);">
+            <i class="fas fa-layer-group" style="font-size:40px;color:#6D5BFF;display:block;margin-bottom:12px;"></i>
+            <p>لا توجد شعب مضافة</p>
+            <p style="font-size:12px;">أضف شعبة جديدة من الأسفل</p>
+        </div>`;
+        return;
+    }
+    
+    let html = '';
+    allSections.forEach((section, idx) => {
+        html += `
+            <div class="section-item">
+                <span class="section-name">${idx+1}. ${section.name}</span>
+                <div class="section-actions">
+                    <button class="btn btn-sm btn-danger" onclick="deleteSection('${section.id}')"><i class="fas fa-trash"></i></button>
+                </div>
+            </div>
+        `;
+    });
+    container.innerHTML = html;
+}
+
+function updateSectionFilter() {
+    const filter = document.getElementById('eSectionFilter');
+    const currentValue = filter.value;
+    filter.innerHTML = '<option value="all">📚 كل الشعب</option>';
+    allSections.forEach(section => {
+        const option = document.createElement('option');
+        option.value = section.name;
+        option.textContent = section.name;
+        filter.appendChild(option);
+    });
+    if (currentValue) filter.value = currentValue;
+}
+
+async function addNewSection() {
+    const input = document.getElementById('newSectionName');
+    const name = input.value.trim();
+    if (!name) { showToast('⚠️ الرجاء إدخال اسم الشعبة'); return; }
+    
+    // التحقق من عدم التكرار
+    if (allSections.some(s => s.name === name)) {
+        showToast('⚠️ هذه الشعبة موجودة بالفعل');
+        return;
+    }
+    
+    try {
+        await db.collection('exam_sections').add({
+            name: name,
+            created_at: firebase.firestore.FieldValue.serverTimestamp()
+        });
+        showToast('✅ تم إضافة الشعبة بنجاح');
+        input.value = '';
+        loadSections();
+    } catch (err) {
+        console.error(err);
+        showToast('❌ حدث خطأ');
+    }
+}
+
+async function deleteSection(id) {
+    deleteId = id;
+    deleteType = 'section';
+    document.getElementById('confirmYes').onclick = async () => {
+        if (deleteId && deleteType === 'section') {
+            try {
+                await db.collection('exam_sections').doc(deleteId).delete();
+                showToast('✅ تم حذف الشعبة');
+                closeModal('confirmModal');
+                deleteId = null;
+                deleteType = null;
+                loadSections();
+            } catch (err) { showToast('❌ حدث خطأ'); }
+        }
+    };
+    openModal('confirmModal');
+}
+
+// ========== EXAM LINKS FUNCTIONS ==========
+function loadExamLinks() {
+    const container = document.getElementById('examLinksContainer');
+    
+    if (allSections.length === 0) {
+        container.innerHTML = `
+            <div style="text-align:center;padding:20px;color:rgba(199,210,254,0.5);">
+                <i class="fas fa-info-circle" style="color:#6D5BFF;"></i>
+                <p style="margin-top:6px;">أضف الشعب أولاً من تبويب "إدارة الشعب"</p>
+            </div>
+        `;
+        return;
+    }
+    
+    let html = '';
+    allSections.forEach(section => {
+        const linkKey = `exam_link_${section.name}`;
+        const savedLink = localStorage.getItem(linkKey) || '';
+        
+        html += `
+            <div class="exam-link-row">
+                <span class="section-name">📚 ${section.name}</span>
+                <input type="url" id="link_${section.id}" placeholder="رابط امتحان ${section.name}" value="${savedLink}">
+                <div class="link-actions">
+                    <button class="btn btn-sm btn-primary" onclick="saveExamLink('${section.id}', '${section.name}')"><i class="fas fa-save"></i> حفظ</button>
+                    <button class="btn btn-sm btn-copy" onclick="copyExamLink('${section.id}', '${section.name}')"><i class="fas fa-copy"></i> نسخ</button>
+                    <button class="btn btn-sm btn-outline" onclick="openExamLinkPage('${section.name}')"><i class="fas fa-external-link-alt"></i> فتح</button>
+                </div>
+            </div>
+        `;
+    });
+    container.innerHTML = html;
+}
+
+function saveExamLink(sectionId, sectionName) {
+    const input = document.getElementById(`link_${sectionId}`);
+    const link = input.value.trim();
+    if (!link) {
+        showToast('⚠️ الرجاء إدخال رابط صحيح');
+        return;
+    }
+    localStorage.setItem(`exam_link_${sectionName}`, link);
+    showToast(`✅ تم حفظ رابط ${sectionName}`);
+}
+
+function copyExamLink(sectionId, sectionName) {
+    const input = document.getElementById(`link_${sectionId}`);
+    const link = input.value.trim();
+    if (!link) {
+        showToast('⚠️ لا يوجد رابط محفوظ');
+        return;
+    }
+    navigator.clipboard.writeText(link).then(() => {
+        showToast('✅ تم نسخ الرابط');
+    }).catch(() => {
+        // الطريقة البديلة
+        input.select();
+        document.execCommand('copy');
+        showToast('✅ تم نسخ الرابط');
+    });
+}
+
+function openExamLinkPage(sectionName) {
+    const link = localStorage.getItem(`exam_link_${sectionName}`);
+    if (!link) {
+        showToast('⚠️ لا يوجد رابط محفوظ لهذه الشعبة');
+        return;
+    }
+    window.open(link, '_blank');
+}
+
+function getExamLinkForSection(sectionName) {
+    return localStorage.getItem(`exam_link_${sectionName}`) || '';
+}
+
 // ========== EXAMS FUNCTIONS ==========
 function loadExams() {
     db.collection('exam_reservations').orderBy('created_at', 'desc').onSnapshot(snapshot => {
@@ -1757,13 +2026,15 @@ function loadExams() {
 function filterExams() {
     const search = document.getElementById('eSearchInput').value.toLowerCase();
     const statusFilter = document.getElementById('eStatusFilter').value;
+    const sectionFilter = document.getElementById('eSectionFilter').value;
     
     const filtered = allExams.filter(r => {
         const d = r.data;
         const status = d.status || 'pending';
-        const matchSearch = !search || (d.name || '').toLowerCase().includes(search) || (d.phone || '').includes(search) || (d.telegram || '').toLowerCase().includes(search);
+        const matchSearch = !search || (d.name || '').toLowerCase().includes(search) || (d.phone || '').includes(search);
         const matchStatus = statusFilter === 'all' || status === statusFilter;
-        return matchSearch && matchStatus;
+        const matchSection = sectionFilter === 'all' || (d.section || '') === sectionFilter;
+        return matchSearch && matchStatus && matchSection;
     });
     renderExams(filtered);
     updateExamStats(filtered);
@@ -1773,7 +2044,7 @@ function renderExams(reservations) {
     const tbody = document.getElementById('eTableBody');
     const mobile = document.getElementById('eMobileCards');
     if (reservations.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="8"><div class="loading-state"><div style="font-size:50px;margin-bottom:10px;"><i class="fas fa-graduation-cap" style="color:#6D5BFF;"></i></div><h3 style="color:#C7D2FE;">لا توجد حجوزات</h3></div></td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="7"><div class="loading-state"><div style="font-size:50px;margin-bottom:10px;"><i class="fas fa-graduation-cap" style="color:#6D5BFF;"></i></div><h3 style="color:#C7D2FE;">لا توجد حجوزات</h3></div></td></tr>`;
         mobile.innerHTML = '<div class="loading-state"><div style="font-size:50px;margin-bottom:10px;"><i class="fas fa-graduation-cap" style="color:#6D5BFF;"></i></div><h3 style="color:#C7D2FE;">لا توجد حجوزات</h3></div>';
         document.getElementById('eShowingCount').textContent = 'عرض 0 حجز';
         return;
@@ -1786,9 +2057,9 @@ function renderExams(reservations) {
                            (status === 'cancelled' ? '<span class="status-badge cancelled">❌ ملغي</span>' : 
                            '<span class="status-badge pending">⏳ في انتظار التأكيد</span>');
         
-        tableHTML += `<tr><td>${idx+1}</td><td><span style="font-weight:800;color:#6D5BFF;">${d.name || '—'}</span></td><td style="direction:ltr;">${d.phone || '—'}</td><td>${d.telegram || '—'}</td><td>${d.section || '—'}</td><td style="font-size:12px;">${formatDate(d.created_at)}</td><td>${statusBadge}</td><td><div class="actions-cell"><button class="action-btn view" onclick="openExamDetail('${id}')"><i class="fas fa-eye"></i></button><button class="action-btn edit" onclick="openExamEdit('${id}')"><i class="fas fa-edit"></i></button><button class="action-btn confirm" onclick="confirmExam('${id}')" title="تأكيد الحجز وإرسال الرابط"><i class="fas fa-check"></i></button><button class="action-btn whatsapp" onclick="sendExamWA('${id}')"><i class="fab fa-whatsapp"></i></button><button class="action-btn delete" onclick="confirmExamDelete('${id}')"><i class="fas fa-trash"></i></button></div></td></tr>`;
+        tableHTML += `<tr><td>${idx+1}</td><td><span style="font-weight:800;color:#6D5BFF;">${d.name || '—'}</span></td><td style="direction:ltr;">${d.phone || '—'}</td><td>${d.section || '—'}</td><td style="font-size:12px;">${formatDate(d.created_at)}</td><td>${statusBadge}</td><td><div class="actions-cell"><button class="action-btn view" onclick="openExamDetail('${id}')"><i class="fas fa-eye"></i></button><button class="action-btn edit" onclick="openExamEdit('${id}')"><i class="fas fa-edit"></i></button><button class="action-btn confirm" onclick="confirmExam('${id}')" title="تأكيد الحجز وإرسال الرابط"><i class="fas fa-check"></i></button><button class="action-btn whatsapp" onclick="sendExamWA('${id}')"><i class="fab fa-whatsapp"></i></button><button class="action-btn delete" onclick="confirmExamDelete('${id}')"><i class="fas fa-trash"></i></button></div></td></tr>`;
         
-        mobileHTML += `<div class="mobile-card"><div class="mobile-card-header"><div class="mobile-card-name">${d.name || '—'}</div>${statusBadge}</div><div class="mobile-card-body"><div class="mobile-card-row"><span class="mobile-card-label">📱 رقم الواتساب</span><span class="mobile-card-value">${d.phone || '—'}</span></div><div class="mobile-card-row"><span class="mobile-card-label">📱 تليجرام</span><span class="mobile-card-value">${d.telegram || '—'}</span></div><div class="mobile-card-row"><span class="mobile-card-label">📚 الشعبة</span><span class="mobile-card-value">${d.section || '—'}</span></div></div><div class="mobile-card-actions"><button class="action-btn view" onclick="openExamDetail('${id}')"><i class="fas fa-eye"></i></button><button class="action-btn edit" onclick="openExamEdit('${id}')"><i class="fas fa-edit"></i></button><button class="action-btn confirm" onclick="confirmExam('${id}')"><i class="fas fa-check"></i></button><button class="action-btn whatsapp" onclick="sendExamWA('${id}')"><i class="fab fa-whatsapp"></i></button></div></div>`;
+        mobileHTML += `<div class="mobile-card"><div class="mobile-card-header"><div class="mobile-card-name">${d.name || '—'}</div>${statusBadge}</div><div class="mobile-card-body"><div class="mobile-card-row"><span class="mobile-card-label">📱 رقم الواتساب</span><span class="mobile-card-value">${d.phone || '—'}</span></div><div class="mobile-card-row"><span class="mobile-card-label">📚 الشعبة</span><span class="mobile-card-value">${d.section || '—'}</span></div></div><div class="mobile-card-actions"><button class="action-btn view" onclick="openExamDetail('${id}')"><i class="fas fa-eye"></i></button><button class="action-btn edit" onclick="openExamEdit('${id}')"><i class="fas fa-edit"></i></button><button class="action-btn confirm" onclick="confirmExam('${id}')"><i class="fas fa-check"></i></button><button class="action-btn whatsapp" onclick="sendExamWA('${id}')"><i class="fab fa-whatsapp"></i></button></div></div>`;
     });
     tbody.innerHTML = tableHTML;
     mobile.innerHTML = mobileHTML;
@@ -1810,7 +2081,6 @@ function openExamEdit(id) {
     document.getElementById('editExamId').value = id;
     document.getElementById('editExamName').value = d.name || '';
     document.getElementById('editExamPhone').value = d.phone || '';
-    document.getElementById('editExamTelegram').value = d.telegram || '';
     document.getElementById('editExamSection').value = d.section || '';
     openModal('editExamModal');
 }
@@ -1820,7 +2090,6 @@ async function saveExamEdit() {
     const updates = {
         name: document.getElementById('editExamName').value.trim(),
         phone: document.getElementById('editExamPhone').value.trim(),
-        telegram: document.getElementById('editExamTelegram').value.trim(),
         section: document.getElementById('editExamSection').value.trim()
     };
     if (!updates.name || !updates.phone) { showToast('⚠️ الاسم ورقم الواتس مطلوبين'); return; }
@@ -1842,7 +2111,6 @@ function openExamDetail(id) {
         <div class="detail-grid">
             <div class="detail-item"><div class="detail-label">الاسم</div><div class="detail-value">${d.name || '—'}</div></div>
             <div class="detail-item"><div class="detail-label">رقم الواتساب</div><div class="detail-value">${d.phone || '—'}</div></div>
-            <div class="detail-item"><div class="detail-label">تليجرام</div><div class="detail-value">${d.telegram || '—'}</div></div>
             <div class="detail-item"><div class="detail-label">الشعبة</div><div class="detail-value">${d.section || '—'}</div></div>
             <div class="detail-item"><div class="detail-label">تاريخ الحجز</div><div class="detail-value">${formatDate(d.created_at)}</div></div>
             <div class="detail-item"><div class="detail-label">الحالة</div><div class="detail-value">${statusText}</div></div>
@@ -1874,7 +2142,7 @@ function sendExamWA(id) {
     const r = allExams.find(r => r.id === id);
     if (!r) return;
     const d = r.data;
-    const link = getExamLink();
+    const link = getExamLinkForSection(d.section || '');
     const phone = d.phone;
     if (!phone) { showToast('⚠️ لا يوجد رقم واتساب'); return; }
     
@@ -1882,12 +2150,11 @@ function sendExamWA(id) {
 ━━━━━━━━━━━━━━━━━━━━
 👤 *الاسم:* ${d.name || '—'}
 📚 *الشعبة:* ${d.section || '—'}
-📱 *تليجرام:* ${d.telegram || '—'}
 ━━━━━━━━━━━━━━━━━━━━
 ✅ *تم تأكيد حجزك بنجاح*
 
 🔗 *رابط الامتحان:*
-${link}
+${link || 'لم يتم تحديد رابط لهذه الشعبة بعد'}
 
 📌 يرجى حفظ الرابط للدخول للامتحان في الموعد المحدد.
 
@@ -1932,8 +2199,8 @@ function exportCSV() {
     } else if (activeTab.id === 'tab-exams') {
         const filtered = allExams;
         if (!filtered.length) { showToast('لا بيانات'); return; }
-        let csv = '\uFEFFالاسم,رقم الواتساب,تليجرام,الشعبة,الحالة,تاريخ الحجز\n';
-        filtered.forEach(r => { const d = r.data; csv += `"${d.name||''}","${d.phone||''}","${d.telegram||''}","${d.section||''}","${d.status||'pending'}","${formatDate(d.created_at)}"\n`; });
+        let csv = '\uFEFFالاسم,رقم الواتساب,الشعبة,الحالة,تاريخ الحجز\n';
+        filtered.forEach(r => { const d = r.data; csv += `"${d.name||''}","${d.phone||''}","${d.section||''}","${d.status||'pending'}","${formatDate(d.created_at)}"\n`; });
         const link = document.createElement('a');
         link.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8;' }));
         link.download = `exams_${new Date().toISOString().slice(0,10)}.csv`;
@@ -1962,7 +2229,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadHeadphones();
     loadExams();
     loadProducts();
-    document.getElementById('examLinkInput').value = getExamLink();
+    loadSections();
     updateDiscountUI();
 });
 
@@ -1988,7 +2255,6 @@ window.openExamDetail = openExamDetail;
 window.confirmExam = confirmExam;
 window.sendExamWA = sendExamWA;
 window.confirmExamDelete = confirmExamDelete;
-window.saveExamLink = saveExamLink;
 window.openProductModal = openProductModal;
 window.saveProduct = saveProduct;
 window.deleteProduct = deleteProduct;
@@ -1997,6 +2263,12 @@ window.clearDiscount = clearDiscount;
 window.exportCSV = exportCSV;
 window.showToast = showToast;
 window.previewProductImage = previewProductImage;
+window.loadSections = loadSections;
+window.addNewSection = addNewSection;
+window.deleteSection = deleteSection;
+window.saveExamLink = saveExamLink;
+window.copyExamLink = copyExamLink;
+window.openExamLinkPage = openExamLinkPage;
 </script>
 </body>
 </html>
